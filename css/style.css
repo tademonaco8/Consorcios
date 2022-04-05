@@ -1,0 +1,22 @@
+*{
+    font-size: 14px;
+}
+
+nav{
+    display: inline-flex ;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    margin-left: 17%;
+}
+
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+}
+nav ul li{
+    display: flex;
+    align-content: space-between;
+    padding-left: 25px;
+}
