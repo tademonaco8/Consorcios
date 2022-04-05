@@ -42,7 +42,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
         <input type="submit" value="Buscar" id="btnBusq">
     </form>
 
-    <table border="1">
+    <table class="tableDatos" border="1">
         <thead class="comparaciones-header">
             <tr>
                 <td>ID</td>
@@ -79,6 +79,8 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
             // $sql = "SELECT * from servicios_publicos";
             $result = mysqli_query($conexion, $sql);
             while ($mostrar = mysqli_fetch_array($result)) {
+                switch ($option) {
+                case '0': //serviciospublicos
             ?>
                 <tr>
                     <td><?php echo $mostrar['id'] ?></td>
@@ -90,14 +92,68 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
                 </tr>
 
                 <?php
-                
+                break;
+                case '1': //abonoservicios?> 
+                    <tr>
+                        <td><?php echo $mostrar['id'] ?></td>
+                        <td><?php echo $mostrar['proveedor'] ?></td>
+                        <td><?php echo $mostrar['motivo'] ?></td>
+                        <td><?php echo $mostrar['comprobante'] ?></td>
+                        <td><?php echo $mostrar['fecha_de_pago'] ?></td>
+                        <td><?php echo $mostrar['importe'] ?></td>
+                    </tr>
+                    <?php
+                break;
+                case '2': //sysb?>
+                <tr>
+                        <td><?php echo $mostrar['id'] ?></td>
+                        <td><?php echo $mostrar['proveedor'] ?></td>
+                        <td><?php echo $mostrar['poliza'] ?></td>
+                        <td><?php echo $mostrar['comp'] ?></td>
+                        <td><?php echo $mostrar['fechadepago'] ?></td>
+                        <td><?php echo $mostrar['importe'] ?></td>
+                    </tr>
+                    <?php
+                break;
+                case '3': //fdr ?>
+                <tr>
+                    <td><?php echo $mostrar['id'] ?></td>
+                    <td><?php echo '' ?></td>
+                    <td><?php echo '-' ?></td>
+                    <td><?php echo '-' ?></td>
+                    <td><?php echo $mostrar['fechadepago'] ?></td>
+                    <td><?php echo $mostrar['importe'] ?></td>
+                </tr>
+                <?php
+            break;
+            case '4': //erogextr ?>
+            <tr>
+                <td><?php echo $mostrar['id'] ?></td>
+                <td><?php echo $mostrar['proveedor'] ?></td>
+                <td><?php echo $mostrar['motivo'] ?></td>
+                <td><?php echo '-' ?></td>
+                <td><?php echo $mostrar['fechadepago'] ?></td>
+                <td><?php echo $mostrar['importe'] ?></td>
+            </tr>
+            <?php
+        break;
+        case '5': //impuestos?>
+        <tr>
+                        <td><?php echo $mostrar['id'] ?></td>
+                        <td><?php echo '-' ?></td>
+                        <td><?php echo $mostrar['motivo'] ?></td>
+                        <td><?php echo '-' ?></td>
+                        <td><?php echo $mostrar['fechadepago'] ?></td>
+                        <td><?php echo $mostrar['importe'] ?></td>
+                    </tr>
+                    <?php
+                break;
 
                 $importe = intval($mostrar['importe']);
-            }
+            }}
             $query = "SELECT importe FROM servicios_publicos;";
             $result = mysqli_query($conexion, $query);
             $num = mysqli_fetch_array($result);
-            echo $num;
 
             ?>
             <tr>

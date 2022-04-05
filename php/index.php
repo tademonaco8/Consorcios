@@ -18,7 +18,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
         <nav>
             <div class="menu">
                 <ul class="navigation">
-                    <li class="active"><a href="#">Ingreso de datos</a></li>
+                    <li><a href="#">Ingreso de datos</a></li>
                     <li><a href="datos.php">Ver resumen</a></li>
                     <li><a href="cuentas.php">Estado de cuentas</a></li>
                     <li><a href="finanzas.php">Estado financiero</a></li>
@@ -98,6 +98,8 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
             echo "<h2>Erogaciones Extraordinarias</h2>
                     <form class='formulario' method='POST' action='index.php'>
                         <ul>
+                            <li>Proveedor:<input type='text' name='prv-EE'></li>
+                            <li>Motivo:<input type='text' name='mtv-EE'></li>
                             <li>Fecha de pago:<input type='date' name='fdp-EE'></li>
                             <li>Importe:<input type='number' step='0.01' name='imp-EE'></li>
                             <li><input type='submit' value='Enviar' name='btnFormEE'></li>
