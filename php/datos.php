@@ -31,7 +31,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
     </header>
 
     <form method="POST" action="datos.php">
-        <select name="category">
+        <select name="category" class="selectData">
             <option value="0">Servicios publicos</option>
             <option value="1">Abono de servicios</option>
             <option value="2">Seguros y servicios bancarios</option>
@@ -46,31 +46,31 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
     switch ($option) {
         case '0':
             $sql = "SELECT * from servicios_publicos";
-            echo "<h1>Servicios Publicos</h1>";
-            
+            echo "<h1>Tabla de Servicios Publicos</h1>";
+
             break;
         case '1':
             $sql = "SELECT * from abono_servicios";
-            echo "<h1>Abono de servicios</h1>";
+            echo "<h1>Tabla de Abono de servicios</h1>";
             break;
         case '2':
             $sql = "SELECT * from sysb";
-            echo "<h1>Seguros y servicios bancarios</h1>";
+            echo "<h1>Tabla de Seguros y servicios bancarios</h1>";
             break;
         case '3':
             $sql = "SELECT * from fdr";
-            echo "<h1>Fondo de reserva</h1>";
+            echo "<h1>Tabla de Fondo de reserva</h1>";
             break;
         case '4':
             $sql = "SELECT * from erogextr";
-            echo "<h1>Erogaciones Extraordinarias</h1>";
+            echo "<h1>Tabla de Erogaciones Extraordinarias</h1>";
             break;
         case '5':
             $sql = "SELECT * from impuestos";
-            echo "<h1>Impuestos</h1>";
+            echo "<h1>Tabla de Impuestos</h1>";
             break;
     } ?>
-    <table class="tableDatos" border="1">
+    <table class="tableData">
         <thead class="comparaciones-header">
             <tr>
                 <td>ID</td>
@@ -164,18 +164,32 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
                         $importe = intval($mostrar['importe']);
                 }
             }
-            $query = "SELECT importe FROM servicios_publicos;";
-            $result = mysqli_query($conexion, $query);
-            $num = mysqli_fetch_array($result);
+            $query = "SELECT importe FROM abono_servicios;";
+            $result2 = mysqli_query($conexion, $query);
+            $numeros = mysqli_fetch_array($result);
+
+            while ($row = $result2->fetch_row()) {
+                $myArray[] = $row;
+            }
+            echo json_encode($myArray);
+            //  echo $myArray;
+
 
             ?>
+
+            <script>
+                let jsvar = '<?= json_encode($myArray) ?>';
+                console.log(jsvar);
+            </script>
+
+
             <tr>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td>Total:</td>
-                <td><?php array_sum($num); ?></td>
+                <td></td>
             </tr>
         </tbody>
     </table>

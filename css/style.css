@@ -5,17 +5,44 @@
 nav {
     display: inline-flex;
     flex-direction: row;
-    align-items: center;
-    align-content: center;
-    margin-left: 17%;
 }
 
 h1 {
     font-size: 28px;
+    text-align: center;
+}
+
+.selectData{
+    margin: 25px;
+}
+
+.tableData{
+    margin-left: 37%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+a{
+    font-size: 16px;
+    text-decoration: none;
+    color: midnightblue;
+    font-weight: bold;
+}
+
+a:hover{
+    text-decoration: underline 2pt white;
+    transition: ease 0.2s;    
+    color: white;
+    font-size: 18px;
 }
 
 header {
     background-color: violet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 nav ul {
@@ -25,6 +52,5 @@ nav ul {
 
 nav ul li {
     display: flex;
-    align-content: space-between;
-    padding-left: 25px;
+    padding: 20px;
 }

@@ -202,6 +202,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
 
     ?>
     <!-- Totales -->
+
 </body>
 
 </html>
