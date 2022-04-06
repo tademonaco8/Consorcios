@@ -41,7 +41,35 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
         </select>
         <input type="submit" value="Buscar" id="btnBusq">
     </form>
-
+    <?php
+    $option = ($_POST['category']);
+    switch ($option) {
+        case '0':
+            $sql = "SELECT * from servicios_publicos";
+            echo "<h1>Servicios Publicos</h1>";
+            
+            break;
+        case '1':
+            $sql = "SELECT * from abono_servicios";
+            echo "<h1>Abono de servicios</h1>";
+            break;
+        case '2':
+            $sql = "SELECT * from sysb";
+            echo "<h1>Seguros y servicios bancarios</h1>";
+            break;
+        case '3':
+            $sql = "SELECT * from fdr";
+            echo "<h1>Fondo de reserva</h1>";
+            break;
+        case '4':
+            $sql = "SELECT * from erogextr";
+            echo "<h1>Erogaciones Extraordinarias</h1>";
+            break;
+        case '5':
+            $sql = "SELECT * from impuestos";
+            echo "<h1>Impuestos</h1>";
+            break;
+    } ?>
     <table class="tableDatos" border="1">
         <thead class="comparaciones-header">
             <tr>
@@ -55,102 +83,87 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
         </thead>
         <tbody class="tablebody" id="spotTable">
             <?php
-            $option = ($_POST['category']);
-            switch ($option) {
-                case '0':
-                    $sql = "SELECT * from servicios_publicos";
-                    break;
-                case '1':
-                    $sql = "SELECT * from abono_servicios";
-                    break;
-                case '2':
-                    $sql = "SELECT * from sysb";
-                    break;
-                case '3':
-                    $sql = "SELECT * from fdr";
-                    break;
-                case '4':
-                    $sql = "SELECT * from erogextr";
-                    break;
-                case '5':
-                    $sql = "SELECT * from impuestos";
-                    break;
-            }
             // $sql = "SELECT * from servicios_publicos";
             $result = mysqli_query($conexion, $sql);
             while ($mostrar = mysqli_fetch_array($result)) {
                 switch ($option) {
-                case '0': //serviciospublicos
+                    case '0': //serviciospublicos
             ?>
-                <tr>
-                    <td><?php echo $mostrar['id'] ?></td>
-                    <td><?php echo $mostrar['proveedor'] ?></td>
-                    <td><?php echo $mostrar['motivo'] ?></td>
-                    <td><?php echo $mostrar['comprobante'] ?></td>
-                    <td><?php echo $mostrar['fecha_de_pago'] ?></td>
-                    <td><?php echo $mostrar['importe'] ?></td>
-                </tr>
+                        <tr>
+                            <td><?php echo $mostrar['id'] ?></td>
+                            <td><?php echo $mostrar['proveedor'] ?></td>
+                            <td><?php echo $mostrar['motivo'] ?></td>
+                            <td><?php echo $mostrar['comprobante'] ?></td>
+                            <td><?php echo $mostrar['fecha_de_pago'] ?></td>
+                            <td><?php echo $mostrar['importe'] ?></td>
+                        </tr>
 
-                <?php
-                break;
-                case '1': //abonoservicios?> 
-                    <tr>
-                        <td><?php echo $mostrar['id'] ?></td>
-                        <td><?php echo $mostrar['proveedor'] ?></td>
-                        <td><?php echo $mostrar['motivo'] ?></td>
-                        <td><?php echo $mostrar['comprobante'] ?></td>
-                        <td><?php echo $mostrar['fecha_de_pago'] ?></td>
-                        <td><?php echo $mostrar['importe'] ?></td>
-                    </tr>
                     <?php
-                break;
-                case '2': //sysb?>
-                <tr>
-                        <td><?php echo $mostrar['id'] ?></td>
-                        <td><?php echo $mostrar['proveedor'] ?></td>
-                        <td><?php echo $mostrar['poliza'] ?></td>
-                        <td><?php echo $mostrar['comp'] ?></td>
-                        <td><?php echo $mostrar['fechadepago'] ?></td>
-                        <td><?php echo $mostrar['importe'] ?></td>
-                    </tr>
+                        break;
+                    case '1': //abonoservicios
+                    ?>
+                        <tr>
+                            <td><?php echo $mostrar['id'] ?></td>
+                            <td><?php echo $mostrar['proveedor'] ?></td>
+                            <td><?php echo $mostrar['motivo'] ?></td>
+                            <td><?php echo $mostrar['comprobante'] ?></td>
+                            <td><?php echo $mostrar['fecha_de_pago'] ?></td>
+                            <td><?php echo $mostrar['importe'] ?></td>
+                        </tr>
                     <?php
-                break;
-                case '3': //fdr ?>
-                <tr>
-                    <td><?php echo $mostrar['id'] ?></td>
-                    <td><?php echo '' ?></td>
-                    <td><?php echo '-' ?></td>
-                    <td><?php echo '-' ?></td>
-                    <td><?php echo $mostrar['fechadepago'] ?></td>
-                    <td><?php echo $mostrar['importe'] ?></td>
-                </tr>
-                <?php
-            break;
-            case '4': //erogextr ?>
-            <tr>
-                <td><?php echo $mostrar['id'] ?></td>
-                <td><?php echo $mostrar['proveedor'] ?></td>
-                <td><?php echo $mostrar['motivo'] ?></td>
-                <td><?php echo '-' ?></td>
-                <td><?php echo $mostrar['fechadepago'] ?></td>
-                <td><?php echo $mostrar['importe'] ?></td>
-            </tr>
+                        break;
+                    case '2': //sysb
+                    ?>
+                        <tr>
+                            <td><?php echo $mostrar['id'] ?></td>
+                            <td><?php echo $mostrar['proveedor'] ?></td>
+                            <td><?php echo $mostrar['poliza'] ?></td>
+                            <td><?php echo $mostrar['comp'] ?></td>
+                            <td><?php echo $mostrar['fechadepago'] ?></td>
+                            <td><?php echo $mostrar['importe'] ?></td>
+                        </tr>
+                    <?php
+                        break;
+                    case '3': //fdr 
+                    ?>
+                        <tr>
+                            <td><?php echo $mostrar['id'] ?></td>
+                            <td><?php echo '-' ?></td>
+                            <td><?php echo '-' ?></td>
+                            <td><?php echo '-' ?></td>
+                            <td><?php echo $mostrar['fechadepago'] ?></td>
+                            <td><?php echo $mostrar['importe'] ?></td>
+                        </tr>
+                    <?php
+                        break;
+                    case '4': //erogextr 
+                    ?>
+                        <tr>
+                            <td><?php echo $mostrar['id'] ?></td>
+                            <td><?php echo $mostrar['proveedor'] ?></td>
+                            <td><?php echo $mostrar['motivo'] ?></td>
+                            <td><?php echo '-' ?></td>
+                            <td><?php echo $mostrar['fechadepago'] ?></td>
+                            <td><?php echo $mostrar['importe'] ?></td>
+                        </tr>
+                    <?php
+                        break;
+                    case '5': //impuestos
+                    ?>
+                        <tr>
+                            <td><?php echo $mostrar['id'] ?></td>
+                            <td><?php echo '-' ?></td>
+                            <td><?php echo $mostrar['motivo'] ?></td>
+                            <td><?php echo '-' ?></td>
+                            <td><?php echo $mostrar['fechadepago'] ?></td>
+                            <td><?php echo $mostrar['importe'] ?></td>
+                        </tr>
             <?php
-        break;
-        case '5': //impuestos?>
-        <tr>
-                        <td><?php echo $mostrar['id'] ?></td>
-                        <td><?php echo '-' ?></td>
-                        <td><?php echo $mostrar['motivo'] ?></td>
-                        <td><?php echo '-' ?></td>
-                        <td><?php echo $mostrar['fechadepago'] ?></td>
-                        <td><?php echo $mostrar['importe'] ?></td>
-                    </tr>
-                    <?php
-                break;
+                        break;
 
-                $importe = intval($mostrar['importe']);
-            }}
+                        $importe = intval($mostrar['importe']);
+                }
+            }
             $query = "SELECT importe FROM servicios_publicos;";
             $result = mysqli_query($conexion, $query);
             $num = mysqli_fetch_array($result);

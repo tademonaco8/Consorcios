@@ -1,21 +1,29 @@
-*{
+* {
     font-size: 14px;
 }
 
-nav{
-    display: inline-flex ;
+nav {
+    display: inline-flex;
     flex-direction: row;
     align-items: center;
     align-content: center;
     margin-left: 17%;
 }
 
+h1 {
+    font-size: 28px;
+}
 
-nav ul{
+header {
+    background-color: violet;
+}
+
+nav ul {
     display: flex;
     flex-direction: row;
 }
-nav ul li{
+
+nav ul li {
     display: flex;
     align-content: space-between;
     padding-left: 25px;
