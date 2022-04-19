@@ -121,6 +121,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
             break;
     }
 
+    
     if (isset($_POST['prv-SP'])) {
         $prvSP = $_POST['prv-SP'];
         $mtvSP = $_POST['mtv-SP'];
