@@ -1,6 +1,6 @@
 <?php
 
-$conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
+$conexion = mysqli_connect('localhost', 'root', '', 'consorcios');
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +30,20 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
         </nav>
     </header>
 
+    <?php 
+    function tomarTotal($mostrar, $cantidad){
+        $a = 0;
+        $importe = ($mostrar['importe']);
+            for ($i=0; $i < (count($mostrar)/$cantidad); $i++) { 
+                $a += (intval($importe));
+                
+            }
+            
+        return $a;
+    }
+    
+
+?>
     <form method="POST" action="datos.php">
         <select name="category" class="selectData">
             <option value="0">Servicios publicos</option>
@@ -83,6 +97,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
         </thead>
         <tbody class="tablebody" id="spotTable">
             <?php
+            
             // $sql = "SELECT * from servicios_publicos";
             $result = mysqli_query($conexion, $sql);
             while ($mostrar = mysqli_fetch_array($result)) {
@@ -95,9 +110,14 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
                             <td><?php echo $mostrar['motivo'] ?></td>
                             <td><?php echo $mostrar['comprobante'] ?></td>
                             <td><?php echo $mostrar['fecha_de_pago'] ?></td>
-                            <td><?php echo $mostrar['importe'] ?></td>
+                            <td id="importe">$<?php echo $mostrar['importe'] ?></td>
                         </tr>
 
+                        <?php 
+                        $cantidad = 12;
+                        echo tomarTotal($mostrar, $cantidad);
+                        
+                        ?>
                     <?php
                         break;
                     case '1': //abonoservicios
@@ -108,7 +128,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
                             <td><?php echo $mostrar['motivo'] ?></td>
                             <td><?php echo $mostrar['comprobante'] ?></td>
                             <td><?php echo $mostrar['fecha_de_pago'] ?></td>
-                            <td><?php echo $mostrar['importe'] ?></td>
+                            <td id="importe"><?php echo $mostrar['importe'] ?></td>
                         </tr>
                     <?php
                         break;
@@ -120,7 +140,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
                             <td><?php echo $mostrar['poliza'] ?></td>
                             <td><?php echo $mostrar['comp'] ?></td>
                             <td><?php echo $mostrar['fechadepago'] ?></td>
-                            <td><?php echo $mostrar['importe'] ?></td>
+                            <td id="importe"><?php echo $mostrar['importe'] ?></td>
                         </tr>
                     <?php
                         break;
@@ -132,7 +152,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
                             <td><?php echo '-' ?></td>
                             <td><?php echo '-' ?></td>
                             <td><?php echo $mostrar['fechadepago'] ?></td>
-                            <td><?php echo $mostrar['importe'] ?></td>
+                            <td id="importe"><?php echo $mostrar['importe'] ?></td>
                         </tr>
                     <?php
                         break;
@@ -144,7 +164,7 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
                             <td><?php echo $mostrar['motivo'] ?></td>
                             <td><?php echo '-' ?></td>
                             <td><?php echo $mostrar['fechadepago'] ?></td>
-                            <td><?php echo $mostrar['importe'] ?></td>
+                            <td id="importe"><?php echo $mostrar['importe'] ?></td>
                         </tr>
                     <?php
                         break;
@@ -156,31 +176,32 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
                             <td><?php echo $mostrar['motivo'] ?></td>
                             <td><?php echo '-' ?></td>
                             <td><?php echo $mostrar['fechadepago'] ?></td>
-                            <td><?php echo $mostrar['importe'] ?></td>
+                            <td id="importe"><?php echo $mostrar['importe'] ?></td>
                         </tr>
             <?php
                         break;
-
-                        $importe = intval($mostrar['importe']);
                 }
             }
-            $query = "SELECT importe FROM abono_servicios;";
-            $result2 = mysqli_query($conexion, $query);
-            $numeros = mysqli_fetch_array($result);
+            
+            
+            // $query = "SELECT importe FROM abono_servicios;";
+            // $result2 = mysqli_query($conexion, $query);
+            // $numeros = mysqli_fetch_array($result);
+            // echo $numeros;
+            
+            // while ($row = $result2->fetch_row()) {
+            //     $myArray[] = $row;
+            // }
+            // $var1= json_encode($myArray);
+            
+            // // var_dump($numeros);
 
-            while ($row = $result2->fetch_row()) {
-                $myArray[] = $row;
-            }
-            echo json_encode($myArray);
-            //  echo $myArray;
-
+            // for ($i=0; $i < count($myArray); $i++) { 
+            //     echo (json_encode($myArray[$i]));
+                
+            // }
 
             ?>
-
-            <script>
-                let jsvar = '<?= json_encode($myArray) ?>';
-                console.log(jsvar);
-            </script>
 
 
             <tr>
@@ -195,4 +216,6 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
     </table>
 </body>
 
+
 </html>
+

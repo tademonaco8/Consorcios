@@ -1,3 +1,4 @@
 "use strict"
 
-console.log(jsvar);
+let importe = document.getElementById(#importe).value;
+console.log(importe);

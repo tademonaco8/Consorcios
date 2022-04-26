@@ -12,28 +12,30 @@ h1 {
     text-align: center;
 }
 
-.selectData{
+.selectData {
     margin: 25px;
 }
 
-.tableData{
+.tableData {
     margin-left: 37%;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid black;
 }
 
-a{
+a {
     font-size: 16px;
     text-decoration: none;
     color: midnightblue;
     font-weight: bold;
 }
 
-a:hover{
+a:hover {
     text-decoration: underline 2pt white;
-    transition: ease 0.2s;    
+    transition: ease 0.2s;
     color: white;
     font-size: 18px;
 }
