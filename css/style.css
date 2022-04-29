@@ -40,6 +40,35 @@ a:hover {
     font-size: 18px;
 }
 
+.formIndex {
+    list-style: none;
+}
+
+#btnForm {
+    display: flex;
+    float: right;
+}
+
+.formIndex li input {
+    display: flex;
+}
+
+.formIndex li {
+    padding: 5px;
+}
+
+.divIndex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.divForm {
+    display: flex;
+    justify-content: center;
+}
+
 header {
     background-color: violet;
     display: flex;

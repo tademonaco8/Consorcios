@@ -28,11 +28,11 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
             </div>
         </nav>
     </header>
-
+    <div class="divIndex">
     <p>Elija la categoría a ingresar datos:</p>
     <form method="POST" action="index.php">
         <select name="category" required>
-            <option value="0">Servicios publicos</option>
+            <option value="0" selected>Servicios publicos</option>
             <option value="1">Abono de servicios</option>
             <option value="2">Seguros y servicios bancarios</option>
             <option value="3">Fondo de reserva</option>
@@ -41,83 +41,101 @@ $conexion = mysqli_connect('localhost', 'root', '', 'consorcios')
         </select>
         <input type="submit" value="Buscar" id="btnBusq">
     </form>
+    </div>
 
     <?php
     $option = ($_POST['category']);
     switch ($option) {
         case '0':
-            echo "<h2>Servicios publicos</h2>
-                    <form class='formulario' method='POST' action='index.php'>
-                        <ul>
+            echo "<div class='divForm'>
+            <form class='formulario' method='POST' action='index.php'>
+            <h1>Servicios publicos</h1>
+            <ul class='formIndex'>
                             <li>Proveedor:<input type='text' name='prv-SP'></li>
                             <li>Motivo:<input type='text' name='mtv-SP'></li>
                             <li>Comprobante:<input type='text' name='cmp-SP'></li>
                             <li>Fecha de pago:<input type='date' name='fdp-SP'></li>
                             <li>Importe:<input type='number' step='0.01' name='imp-SP'></li>
-                            <li><input type='submit' value='Enviar' name='btnFormSP'></li>
+                            <li><input type='submit' value='Enviar' name='btnFormSP'  id='btnForm'></li>
                         </ul>
-                 </form>";
+                 </form>
+                 </div>";
             break;
         case '1':
-            echo "<h2>Abono de servicios</h2>
-                    <form class='formulario' method='POST' action='index.php'>
-                        <ul>
+            echo "
+            <div class='divForm'>
+            <form class='formulario' method='POST' action='index.php'>
+            <h1>Abono de servicios</h1>
+            <ul class='formIndex'>
                             <li>Proveedor:<input type='text' name='prv-AS'></li>
                             <li>Motivo:<input type='text' name='mtv-AS'></li>
                             <li>Comprobante:<input type='text' name='cmp-AS'></li>
                             <li>Fecha de pago:<input type='date' name='fdp-AS'></li>
                             <li>Importe:<input type='number' step='0.01' name='imp-AS'></li>
-                            <li><input type='submit' value='Enviar' name='btnFormAS'></li>
+                            <li><input type='submit' value='Enviar' name='btnFormAS'  id='btnForm'></li>
                         </ul>
-                 </form>";
+                 </form>
+                 </div";
             break;
         case '2':
-            echo "<h2>Servicios y seguros bancarios</h2>
-                    <form class='formulario' method='POST' action='index.php'>
-                        <ul>
+            echo "
+            <div class='divForm'>
+            <form class='formulario' method='POST' action='index.php'>
+            <h1>Servicios y seguros bancarios</h1>
+            <ul class='formIndex'>
                             <li>Proveedor:<input type='text' name='prv-SB'></li>
                             <li>Poliza:<input type='text' name='mtv-SB'></li>
                             <li>Comprobante:<input type='text' name='cmp-SB'></li>
                             <li>Fecha de pago:<input type='date' name='fdp-SB'></li>
                             <li>Importe:<input type='number' step='0.01' name='imp-SB'></li>
-                            <li><input type='submit' value='Enviar' name='btnFormSB'></li>
+                            <li><input type='submit' value='Enviar' name='btnFormSB'  id='btnForm'></li>
                         </ul>
-                 </form>";
+                 </form>
+                 </div>";
             break;
         case '3':
-            echo "<h2>Fondo de reserva</h2>
-                    <form class='formulario' method='POST' action='index.php'>
-                        <ul>
+            echo "
+            <div class='divForm'>
+            <form class='formulario' method='POST' action='index.php'>
+            <h1>Fondo de reserva</h1>
+            <ul class='formIndex'>
                             <li>Fecha de pago:<input type='date' name='fdp-FDR'></li>
                             <li>Importe:<input type='number' step='0.01' name='imp-FDR'></li>
-                            <li><input type='submit' value='Enviar' name='btnFormFDR'></li>
+                            <li><input type='submit' value='Enviar' name='btnFormFDR'  id='btnForm'></li>
                         </ul>
-                    </form>";
+                    </form>
+                    </div>";
             break;
         case '4':
-            echo "<h2>Erogaciones Extraordinarias</h2>
-                    <form class='formulario' method='POST' action='index.php'>
-                        <ul>
+            echo "
+            <div class='divForm'>
+            <form class='formulario' method='POST' action='index.php'>
+            <h1>Erogaciones Extraordinarias</h1>
+                        <ul class='formIndex'>
                             <li>Proveedor:<input type='text' name='prv-EE'></li>
                             <li>Motivo:<input type='text' name='mtv-EE'></li>
                             <li>Fecha de pago:<input type='date' name='fdp-EE'></li>
                             <li>Importe:<input type='number' step='0.01' name='imp-EE'></li>
-                            <li><input type='submit' value='Enviar' name='btnFormEE'></li>
+                            <li><input type='submit' value='Enviar' name='btnFormEE'  id='btnForm'></li>
                         </ul>
-                 </form>";
+                 </form>
+                </div>";
             break;
         case '5':
-            echo "<h2>Impuestos</h2>
-                    <form class='formulario' method='POST' action='index.php'>
-                        <ul>
+            echo "
+            <div class='divForm'>
+            <form class='formulario' method='POST' action='index.php'>
+            <h1>Impuestos</h1>
+            <ul class='formIndex'>
                             <li>Proveedor:<input type='text' name='prv-IM'></li>
                             <li>Motivo:<input type='text' name='mtv-IM'></li>
                             <li>Comprobante:<input type='text' name='cmp-IM'></li>
                             <li>Fecha de pago:<input type='date' name='fdp-IM'></li>
                             <li>Importe:<input type='number' step='0.01' name='imp-IM'></li>
-                            <li><input type='submit' value='Enviar' name='btnFormIM'></li>
+                            <li><input type='submit' value='Enviar' name='btnFormIM' id='btnForm'></li>
                         </ul>
-                 </form>";
+                 </form>
+            </div>";
             break;
     }
 
