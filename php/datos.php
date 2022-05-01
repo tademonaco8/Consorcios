@@ -84,7 +84,8 @@ $valor = 0;
             echo "<h1>Tabla de Impuestos</h1>";
             break;
     } ?>
-    <table class="tableData">
+    <div class="tableData"> 
+    <table>
         <thead class="comparaciones-header">
             <tr>
                 <td>ID</td>
@@ -110,7 +111,7 @@ $valor = 0;
                             <td><?php echo $mostrar['motivo'] ?></td>
                             <td><?php echo $mostrar['comprobante'] ?></td>
                             <td><?php echo $mostrar['fecha_de_pago'] ?></td>
-                            <td>$<?php echo $mostrar['importe'] ?></td>
+                            <td class="importe">$<?php echo $mostrar['importe'] ?></td>
                         </tr>
                         <?php
                         $cantidad = 12;
@@ -127,7 +128,7 @@ $valor = 0;
                             <td><?php echo $mostrar['motivo'] ?></td>
                             <td><?php echo $mostrar['comprobante'] ?></td>
                             <td><?php echo $mostrar['fecha_de_pago'] ?></td>
-                            <td id="importe"><?php echo $mostrar['importe'] ?></td>
+                            <td class="importe"><?php echo $mostrar['importe'] ?></td>
                         </tr>
                     <?php
                         $cantidad = 12;
@@ -142,7 +143,7 @@ $valor = 0;
                             <td><?php echo $mostrar['poliza'] ?></td>
                             <td><?php echo $mostrar['comp'] ?></td>
                             <td><?php echo $mostrar['fechadepago'] ?></td>
-                            <td id="importe"><?php echo $mostrar['importe'] ?></td>
+                            <td class="importe"><?php echo $mostrar['importe'] ?></td>
                         </tr>
                     <?php
                         $cantidad = 12;
@@ -157,7 +158,7 @@ $valor = 0;
                             <td><?php echo '-' ?></td>
                             <td><?php echo '-' ?></td>
                             <td><?php echo $mostrar['fechadepago'] ?></td>
-                            <td id="importe"><?php echo $mostrar['importe'] ?></td>
+                            <td class="importe"><?php echo $mostrar['importe'] ?></td>
                         </tr>
                     <?php
                         $cantidad = 12;
@@ -172,7 +173,7 @@ $valor = 0;
                             <td><?php echo $mostrar['motivo'] ?></td>
                             <td><?php echo '-' ?></td>
                             <td><?php echo $mostrar['fechadepago'] ?></td>
-                            <td id="importe"><?php echo $mostrar['importe'] ?></td>
+                            <td class="importe"><?php echo $mostrar['importe'] ?></td>
                         </tr>
                     <?php
                         $cantidad = 12;
@@ -187,7 +188,7 @@ $valor = 0;
                             <td><?php echo $mostrar['motivo'] ?></td>
                             <td><?php echo '-' ?></td>
                             <td><?php echo $mostrar['fechadepago'] ?></td>
-                            <td id="importe"><?php echo $mostrar['importe'] ?></td>
+                            <td class="importe"><?php echo $mostrar['importe'] ?></td>
                         </tr>
                     <?php 
                         $cantidad = 12;
@@ -204,11 +205,12 @@ $valor = 0;
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>Total:</td>
-                <td id='total'>$<?php echo $valor; ?></td>
+                <td class="total">Total:</td>
+                <td class='total'>$<?php echo $valor; ?></td>
             </tr>
         </tbody>
     </table>
+    </div>
 </body>
 
 

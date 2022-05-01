@@ -17,13 +17,22 @@ h1 {
 }
 
 .tableData {
-    margin-left: 37%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 table,
 th,
 td {
     border: 1px solid black;
+    text-align: center;
+}
+
+thead,
+thead td {
+    font-weight: bold;
+    font-size: larger;
 }
 
 a {
@@ -37,7 +46,7 @@ a:hover {
     text-decoration: underline 2pt white;
     transition: ease 0.2s;
     color: white;
-    font-size: 18px;
+    /* font-size: 18px; */
 }
 
 .formIndex {
@@ -67,6 +76,12 @@ a:hover {
 .divForm {
     display: flex;
     justify-content: center;
+}
+
+.importe,
+.total {
+    text-align: right;
+    padding: 5px;
 }
 
 header {
